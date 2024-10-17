@@ -16,6 +16,16 @@ func main() {
 	// Display application name and version
 	fmt.Printf("%s v%s\n", ApplicationName, ApplicationVersion)
 
+	// Check if "tsip.exe" process is running
+	isRunning, executablePath, err := isProcessRunning("tsip.exe")
+	if err != nil {
+		fmt.Printf("Error checking process: %v\n", err)
+	} else if isRunning {
+		fmt.Printf("Process 'tsip.exe' is running. Path: %s\n", executablePath)
+	} else {
+		fmt.Println("Process 'tsip.exe' is not running.")
+	}
+
 	// Print test API commands
 	fmt.Println("Test API Commands:")
 	fmt.Println("--------------------")
